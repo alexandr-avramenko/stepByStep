@@ -1,7 +1,4 @@
 var ask = 'background-color';
-// var arr = ask.split('-');
-//
-// alert(arr[0]);
 
 var result = convertToMassive(toUp(ask));
 console.log(result);
