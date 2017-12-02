@@ -1,4 +1,3 @@
-/* .. ваш код для filter, inBetween, inArray */
 var arr = [1, 2, 3, 4, 5, 6, 7];
 
 
