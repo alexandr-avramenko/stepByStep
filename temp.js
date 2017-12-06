@@ -1,20 +1,12 @@
-function makeArmy() {
+var user = {
+    firstName: "Вася",
+    surname: "Петров"
+};
 
-    var shooters = [];
-
-    for (var i = 0; i < 10; i++) {
-        var shooter = function() { // функция-стрелок
-            var j = i;
-            alert( j ); // выводит свой номер
-        };
-        shooters.push(shooter);
+Object.defineProperty(user, "fullName", {
+    get: function() {
+        return this.firstName + ' ' + this.surname;
     }
+});
 
-    return shooters;
-}
-
-var army = makeArmy();
-
-army[0](); // стрелок выводит 10, а должен 0
-army[5](); // стрелок выводит 10...
-// .. все стрелки выводят 10 вместо 0,1,2...9
+alert(user.fullName); // Вася Петров
