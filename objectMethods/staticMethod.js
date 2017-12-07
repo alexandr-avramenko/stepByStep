@@ -16,5 +16,8 @@ Article.showStat = function () {
 
 new Article();
 new Article();
+
+Article.showStat();
+
 new Article();
 Article.showStat();
