@@ -5,22 +5,21 @@ function User(fullName) {
 
             firstName: {
                 get: function () {
-                  return this.firstName;
+                  return this.fullName.split(' ')[0];
                 },
 
-                set: function (value) {
-                    this.firstName = value.split(' ')[0];
+                set: function (newFirstName) {
+                    this.fullName = newFirstName + ' ' + this.lastName;
                 }
             },
 
             lastName: {
                 get: function () {
-                    return this.firstName;
+                    return this.fullName.split(' ')[1];
                 },
 
-                set: function(value) {
-                    var arr = value.split(' ');
-                    this.lastName = arr[1];
+                set: function(newLastName) {
+                    this.fullName = this.firstName + ' ' + newLastName;
             }
         }
     });
@@ -28,3 +27,12 @@ function User(fullName) {
 }
 
 var vasya = new User("Василий Попкин");
+
+// чтение firstName/lastName
+alert( vasya.firstName ); // Василий
+alert( vasya.lastName ); // Попкин
+
+// запись в lastName
+vasya.lastName = 'Сидоров';
+
+alert( vasya.fullName ); // Василий Сидоров
