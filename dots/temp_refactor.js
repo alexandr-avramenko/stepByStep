@@ -42,7 +42,7 @@ function getDots(d1, d2, lineWidth) {
 
 }
 
-getPoints(d1, d2, 4);
+getPoints(d1, d2, 1);
 
 getDots(d1, d2, 1.5, 2);
 
