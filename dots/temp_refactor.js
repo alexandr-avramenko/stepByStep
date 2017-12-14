@@ -25,11 +25,11 @@ function getDots(d1, d2, lineWidth) {
 
     for (var i = 0; i < coordinates.length; i++) {
 
-        if (deltaY === 0) {
+        if (!deltaY) {
             dots.push({
                 x: coordinates[i].x,
                 y: coordinates[i].y + lineWidth});
-        } else if (deltaX === 0) {
+        } else if (!deltaX) {
             dots.push({
                 x: coordinates[i].x + lineWidth,
                 y: coordinates[i].y});
@@ -40,14 +40,14 @@ function getDots(d1, d2, lineWidth) {
         }
     }
 
-    console.log(dots);
 }
 
 getPoints(d1, d2, 4);
-console.log(coordinates);
+
 getDots(d1, d2, 1.5, 2);
 
-
+console.log(coordinates);
+console.log(dots);
 
 
 function getPoints (d1, d2, amount) {
