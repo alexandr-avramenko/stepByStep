@@ -26,3 +26,19 @@ function getPoints (d1, d2, amount) {
 
     return dots;
 }
+
+function linesDraw(d1, d2, width, dot) {
+
+    var dX = d2.x - d1.x,
+        dY = d2.y - d1.y,
+        alf = (Math.PI / 2) + (Math.atan(dX / dY));
+
+    var x = Math.cos(alf) * width + dot.x,
+        y = Math.sin(alf) * width + dot.y;
+
+    return {x: x, y: y};
+
+}
+
+var point = linesDraw(d1, d2, 5, coordinates[0]);
+console.log(point);
