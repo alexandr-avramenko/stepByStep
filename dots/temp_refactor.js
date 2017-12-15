@@ -1,13 +1,12 @@
 var d1 = {
         x: 2,
-        y: 2
+        y: 6
     },
     d2 = {
         x: 7,
-        y: 5.5
-    };
-
-var coordinates = [],
+        y: 2
+    },
+    coordinates = [],
     dots = [];
 
 function getDots(d1, d2, lineWidth) {
@@ -33,18 +32,22 @@ function getDots(d1, d2, lineWidth) {
             dots.push({
                 x: coordinates[i].x + lineWidth,
                 y: coordinates[i].y});
-        } else  {
+        } else if (deltaY) {
             dots.push({
                 x: coordinates[i].x - axialByX,
                 y: coordinates[i].y + axialByY});
+        } else if (deltaY < 0) {
+            console.log(deltaY);
+            dots.push({
+                x: coordinates[i].x + axialByX,
+                y: coordinates[i].y - axialByY});
         }
     }
-
 }
 
 getPoints(d1, d2, 1);
 
-getDots(d1, d2, 1.5, 2);
+getDots(d1, d2, 1.5);
 
 console.log(coordinates);
 console.log(dots);
@@ -52,15 +55,12 @@ console.log(dots);
 
 function getPoints (d1, d2, amount) {
 
-    var deltaX = d2.x - d1.x,
-        deltaY = d2.y - d1.y,
-
-        segmentX = deltaX / amount,
-        segmentY = deltaY / amount,
+    var segmentX = d2.x - d1.x / amount,
+        segmentY = d2.y - d1.y / amount,
 
         pointX = d1.x,
         pointY = d1.y;
-
+    console.log(segmentX);
     for (var i = 1; i <= amount; i++) {
         pointX += segmentX;
         pointY += segmentY;

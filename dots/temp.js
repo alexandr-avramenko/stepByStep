@@ -35,15 +35,21 @@ function getDots(d1, d2, lineWidth, quantity) {
         axialByX = lineWidth * Math.sin(angleBeta),
         axialByY = lineWidth * Math.cos(angleBeta);
 
-    if (deltaY === 0) {
-        dot.x = coordinates[0].x;
-        dot.y = coordinates[0].y + lineWidth;
-    } else if (deltaX === 0) {
-        dot.x = coordinates[0].x + lineWidth;
-        dot.y = coordinates[0].y;
-    } else  {
-        dot.x = coordinates[0].x - axialByX;
-        dot.y = coordinates[0].y + axialByY;
+    for (var j = 0; j < coordinates.length; j++) {
+
+        if (!deltaY) {
+            dots.push({
+                x: coordinates[j].x,
+                y: coordinates[j].y + lineWidth});
+        } else if (!deltaX) {
+            dots.push({
+                x: coordinates[j].x + lineWidth,
+                y: coordinates[j].y});
+        } else  {
+            dots.push({
+                x: coordinates[j].x - axialByX,
+                y: coordinates[j].y + axialByY});
+        }
     }
 
     console.log(dot);
@@ -51,17 +57,3 @@ function getDots(d1, d2, lineWidth, quantity) {
 
 getDots(d1, d2, 1.5, 2);
 
-
-
-
-
-
-
-
-
-
-function getPoints (n1, n2, amount) {
-
-    return n2 - n1;
-
-}
