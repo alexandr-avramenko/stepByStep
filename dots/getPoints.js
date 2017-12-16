@@ -7,7 +7,7 @@ var d1 = {
         y: 500
     },
     coordinates = getPoints(d1, d2, 3);
-    console.log(coordinates);
+console.log(coordinates);
 
 function getPoints (d1, d2, amount) {
 
@@ -40,5 +40,27 @@ function linesDraw(d1, d2, width, dot) {
 
 }
 
-var point = linesDraw(d1, d2, 5, coordinates[0]);
+var point = linesDraw(d1, d2, 100, coordinates[0]);
+var point1 = linesDraw(d1, d2, -100, coordinates[1]);
+var point2 = linesDraw(d1, d2, 100, coordinates[2]);
 console.log(point);
+
+var canvas = document.getElementById('c1');
+var ctx = canvas.getContext('2d');
+
+ctx.strokeStyle = "red";
+ctx.lineWidth = "5";
+ctx.moveTo(d1.x, d1.y);
+ctx.lineTo(d2.x, d2.y);
+
+ctx.moveTo(coordinates[0].x, coordinates[0].y);
+ctx.lineTo(point.x, point.y);
+ctx.stroke();
+
+ctx.moveTo(coordinates[1].x, coordinates[1].y);
+ctx.lineTo(point1.x, point1.y);
+ctx.stroke();
+
+ctx.moveTo(coordinates[2].x, coordinates[2].y);
+ctx.lineTo(point2.x, point2.y);
+ctx.stroke();
