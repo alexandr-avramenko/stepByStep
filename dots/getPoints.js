@@ -1,12 +1,13 @@
 var d1 = {
-        x: 200,
-        y: 540
+        x: 100,
+        y: 100
     },
     d2 = {
-        x: 860,
-        y: 200
+        x: 500,
+        y: 500
     },
     coordinates = getPoints(d1, d2, 3);
+console.log(coordinates);
 
 function getPoints (d1, d2, amount) {
 
@@ -30,7 +31,7 @@ function linesDraw(d1, d2, width, dot) {
 
     var dX = d2.x - d1.x,
         dY = d2.y - d1.y,
-        alf = (Math.PI / 2) + (Math.atan(dY / dX));
+        alf = (Math.PI / 2) + (Math.atan(d / dY));
 
     var x = Math.cos(alf) * width + dot.x,
         y = Math.sin(alf) * width + dot.y;
@@ -39,24 +40,18 @@ function linesDraw(d1, d2, width, dot) {
 
 }
 
-function getRandomArbitary(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
-
-var point = linesDraw(d1, d2, 200, coordinates[0]);
+var point = linesDraw(d1, d2, 100, coordinates[0]);
 var point1 = linesDraw(d1, d2, -100, coordinates[1]);
-var point2 = linesDraw(d1, d2, 200, coordinates[2]);
+var point2 = linesDraw(d1, d2, 100, coordinates[2]);
 console.log(point);
 
 var canvas = document.getElementById('c1');
 var ctx = canvas.getContext('2d');
 
 ctx.strokeStyle = "red";
-ctx.lineWidth = "4";
+ctx.lineWidth = "5";
 ctx.moveTo(d1.x, d1.y);
 ctx.lineTo(d2.x, d2.y);
-ctx.stroke();
 
 ctx.moveTo(coordinates[0].x, coordinates[0].y);
 ctx.lineTo(point.x, point.y);
