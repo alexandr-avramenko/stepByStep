@@ -31,7 +31,7 @@ function linesDraw(d1, d2, width, dot) {
 
     var dX = d2.x - d1.x,
         dY = d2.y - d1.y,
-        alf = (Math.PI / 2) + (Math.atan(d / dY));
+        alf = (Math.PI / 2) + (Math.atan(dY / dX));
 
     var x = Math.cos(alf) * width + dot.x,
         y = Math.sin(alf) * width + dot.y;
